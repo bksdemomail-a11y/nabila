@@ -23,7 +23,7 @@ const AnimatedScene: React.FC = () => {
 
       {/* Heavy Cinematic Rain Storm */}
       <div className="absolute inset-0 z-20">
-        {[...Array(120)].map((_, i) => (
+        {[...Array(100)].map((_, i) => (
           <div
             key={`rain-storm-${i}`}
             className="absolute bg-gradient-to-b from-blue-400/20 to-transparent w-[1px] animate-rain-heavy"
@@ -38,9 +38,9 @@ const AnimatedScene: React.FC = () => {
         ))}
       </div>
 
-      {/* High-Contrast Flying Leaves */}
+      {/* Flying Haunted Leaves */}
       <div className="absolute inset-0 z-30">
-        {[...Array(18)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <div
             key={`leaf-storm-${i}`}
             className="absolute animate-storm-leaf"
@@ -51,7 +51,7 @@ const AnimatedScene: React.FC = () => {
               animationDuration: `${2.5 + Math.random() * 2.5}s`
             }}
           >
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="#080808" className="opacity-60 blur-[0.3px] drop-shadow-[0_0_5px_rgba(0,0,0,1)]">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#080808" className="opacity-60 blur-[0.3px]">
               <path d="M12 2L14 9L21 11L14 13L12 20L10 13L3 11L10 9L12 2Z" />
             </svg>
           </div>
@@ -67,28 +67,21 @@ const AnimatedScene: React.FC = () => {
              <path d="M140 180 Q130 175 135 165" stroke="#050505" strokeWidth="8" />
 
              {/* Proportional Movie Silhouette (Brooding Crouch) */}
-             {/* Main Body */}
              <path d="M150 160 C150 160 170 110 200 135 L180 185 Q155 195 150 160 Z" fill="#030303" />
-             
-             {/* Muscular Crouched Legs */}
-             <path d="M180 185 Q210 195 215 225" stroke="#000000" strokeWidth="18" strokeLinecap="round" />
+             <path d="M180 185 Q215 195 215 225" stroke="#000000" strokeWidth="18" strokeLinecap="round" />
              <path d="M150 160 Q125 185 135 225" stroke="#000000" strokeWidth="18" strokeLinecap="round" />
-             
-             {/* Arms Tucked In */}
              <path d="M170 145 Q145 165 150 195" stroke="#030303" strokeWidth="12" strokeLinecap="round" />
              <path d="M195 145 Q220 165 210 200" stroke="#030303" strokeWidth="12" strokeLinecap="round" />
              
-             {/* Iconic Head Shape */}
-             <g transform="translate(178, 125) rotate(12)">
+             {/* Head with a slightly "Funny/Confused" tilt */}
+             <g transform="translate(178, 125) rotate(25)" className="animate-head-tilt">
                 <ellipse cx="0" cy="0" rx="15" ry="21" fill="#020202" />
-                {/* Hyper-Glowing Cinematic Eyes */}
                 <path d="M-9 -4 C-9 -4 -5 -13 2 -13 C7 -13 11 -4 11 -4 L9 5 L-7 5 L-9 -4 Z" fill="#ffffff" fillOpacity="1" className="filter drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
                 <path d="M-9 -4 C-9 -4 -5 -13 2 -13 C7 -13 11 -4 11 -4" stroke="#000000" strokeWidth="2.5" />
              </g>
 
-             {/* Wet Armor Shimmer (Specular Highlights) */}
+             {/* Wet Armor Shimmer */}
              <path d="M160 135 Q175 125 190 135" stroke="white" strokeWidth="1.2" strokeOpacity="0.3" fill="none" />
-             <path d="M148 170 Q143 190 148 210" stroke="white" strokeWidth="0.8" strokeOpacity="0.2" fill="none" />
           </g>
         </svg>
       </div>
@@ -100,8 +93,6 @@ const AnimatedScene: React.FC = () => {
         }
         @keyframes storm-leaf {
           0% { transform: translate(-10vw, 0) rotate(0) scale(0.3); opacity: 0; }
-          15% { opacity: 0.5; }
-          85% { opacity: 0.5; }
           100% { transform: translate(120vw, -50vh) rotate(2160deg) scale(1.5); opacity: 0; }
         }
         @keyframes lightning {
@@ -117,11 +108,16 @@ const AnimatedScene: React.FC = () => {
           0%, 100% { transform: scaleY(1); }
           50% { transform: scaleY(1.03) translateY(-4px); }
         }
+        @keyframes head-tilt {
+          0%, 100% { transform: translate(178px, 125px) rotate(15deg); }
+          50% { transform: translate(178px, 125px) rotate(35deg); }
+        }
         .animate-rain-heavy { animation: rain-heavy linear infinite; }
         .animate-storm-leaf { animation: storm-leaf linear infinite; }
         .animate-lightning { animation: lightning 10s infinite; }
         .animate-mist { animation: mist 30s ease-in-out infinite alternate; }
         .animate-gentle-breathe { animation: gentle-breathe 6s ease-in-out infinite; }
+        .animate-head-tilt { animation: head-tilt 4s ease-in-out infinite; }
       `}</style>
     </div>
   );
