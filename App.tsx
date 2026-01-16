@@ -4,6 +4,7 @@ import { TimeLeft } from './types';
 import { generateFunnyAdviceBatch } from './services/geminiService';
 import CountdownCard from './components/CountdownCard';
 import AnimatedScene from './components/AnimatedScene';
+import { Analytics } from '@vercel/analytics/react';
 
 const TARGET_DATE = new Date('2026-01-30T00:00:00');
 
@@ -138,6 +139,7 @@ const App: React.FC = () => {
           to { opacity: 1; transform: scale(1) translateY(0); }
         }
       `}</style>
+      <Analytics />
     </div>
   );
 };
