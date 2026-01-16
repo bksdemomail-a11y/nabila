@@ -3,19 +3,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Nabila & Spiderman Wedding</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Hind Siliguri', sans-serif;
-            background-color: #fff5f5;
+            background-color: #000000; /* Force black background */
+            color: white;
+            overflow: hidden; /* Prevent scrolling on the whole page */
+            height: 100vh;
+            width: 100vw;
         }
         .dancing-font {
             font-family: 'Dancing Script', cursive;
         }
+        #root {
+            height: 100%;
+            width: 100%;
+        }
     </style>
+    <script>
+        // Safety check for browser environment
+        window.process = window.process || { env: { API_KEY: "" } };
+    </script>
 <script type="importmap">
 {
   "imports": {
